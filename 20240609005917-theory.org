@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       f726144f-e65e-42fc-828c-4938f89d9424
+:END:
+#+title: Theory
+
+
+* :toc:
+- [[#general-approach][General approach]]
+- [[#book-notes][Book notes]]
+
+* General approach
+
+* Book notes

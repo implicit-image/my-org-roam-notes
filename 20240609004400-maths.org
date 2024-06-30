@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       e8119613-438c-4eda-96ff-8fe272e6d4ea
+:END:
+#+title: Maths
+
+* Categories

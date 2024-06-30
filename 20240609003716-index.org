@@ -1,0 +1,11 @@
+:PROPERTIES:
+:ID:       b88f4ec8-0726-4a13-aeb0-25734446b7fc
+:END:
+#+title: Index
+
+* Categories
+- [[id:f6f64260-7da2-4a5a-82cb-14a7da3637ab][NWScript]]
+- [[id:e8119613-438c-4eda-96ff-8fe272e6d4ea][Maths]]
+- [[id:48ed4228-625b-41bf-919a-16739bcdfc05][Statistics]]
+- [[id:7d6bac47-afd4-4f8a-9a7d-4b4615f2267b][Computer Science]]
+- [[id:f726144f-e65e-42fc-828c-4938f89d9424][Theory]]
