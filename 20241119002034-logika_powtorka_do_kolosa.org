@@ -1,0 +1,241 @@
+:PROPERTIES:
+:ID:       2978669e-0fe6-463f-ba19-dfb410ff5cee
+:END:
+#+title: Logika - powtórka do kolosa
+#+name: Logika_powtorka_do_kolosa
+* Podstawy logiki 1
+** Kluczowe tautologie KRZ
+| nazwa                          | formuła                         |
+|--------------------------------+---------------------------------|
+| prawo wyłączonego środka       | p \lor \not p                        |
+| prawo sprzeczności             | \not(p \land \not p)                     |
+| prawo pdwójnej negacji         | \not\not p \leftrightarrow p                        |
+| prawo transpozycji             | (p \rightarrow q) \leftrightarrow (\not q \rightarrow \not p)           |
+| prawo sylogizmu warunkowego    |                                 |
+|                                | ( p \rightarrow q) \land ( q \rightarrow r) \rightarrow ( p \rightarrow r) |
+|                                | (𝑝 \rightarrow 𝑞) \rightarrow [(𝑞 \rightarrow 𝑟) \rightarrow (𝑝 \rightarrow 𝑟)]    |
+|                                | (𝑞 \rightarrow 𝑟) \rightarrow [(𝑝 \rightarrow 𝑞) \rightarrow (𝑝 \rightarrow 𝑟)]    |
+| prawo eksportacji i importacji | [(p \land q) \rightarrow r] \leftrightarrow [p \rightarrow (q \rightarrow r)]  |
+|                                |                                 |
+
+** Podstawy zdań i formuł KRZ
+- zdanie w sensie logicznym :: zdanie oznajmujące, które przyjmuje wartość 1 (PRAWDA) lub 0 (FAŁSZ).
+- spójniki logiczne :: wyrażenia służące do budowy zdań złożonych ze zdań prostych. Podstawowe spójniki logiczne to:
+  + negacja, \not ; p \equiv \not\not p
+  + koniunkcja, \land ; p \land q
+  + alternatywa, \lor ; p \lor q
+  + implikacja, \rightarrow ; p \rightarrow q
+  + równoważność, \leftrightarrow ; p \leftrightarrow q
+
+
+
+- Własność ekstensjonalności :: Wartość logiczna zdania złożonego zbudowanego za pomocą spójnika logicznego zalezy wyłącznie od rodzaju tego spójnika i wartości logicznych składowych zdań prostych.
+
+  Poprawnie zbudowane schematy zdań nazywamy formułami Klasycznego Rachunku Zdań.
+
+  Zdanie złożone ze zdań, które są formułami KRZ jest formułą KRZ.
+
+- Siła wiązania spójników
+  \not \gt \land \lor \gt \rightarrow \leftrightarrow
+
+- Wartościowanie zbioru zmiennych zdaniowych V ::
+  + funkcja w:V \rightarrow {0, 1}
+  + wartościowanie to przypisanie wartości logicznych pewnym zmiennym zdaniowym, np:
+    A = p \land q
+    w(A) = 1 \equiv w(p \land q)
+** Wyznacznie wartości logicznej zdania złożonego
+
+- Weźmy zdanie A = "Jeżeli nieprawda, że 5 > 4, to jeżeli 5 < 4, to 2 < 1 lub 2 < 3"
+
+  1. Najpierw należy utworzyc schemat logiczny A
+     p : 5 \lt 4
+     q : 2 \lt 1
+     r : 2 \lt 3
+     \not p \rightarrow (p \rightarrow q \lor r)
+     
+  2. Następnie ustalic wartości logiczne zdań prostych
+     p = 0, q = 0, r = 1
+
+  3. Podstawić te wartości za zmienne p q r i przeprowadzić obliczenia zgodnie z tablicami prawdziwościowymi.
+
+     \not 0 \rightarrow (0 \rightarrow 0 \lor 1)
+     = 1 \rightarrow (0 \rightarrow 1)
+     = 1 \rightarrow 1
+     = 1
+
+** Tablica prawdziwościowa formuły
+
+Niech {p_1, p_2, ..., p_n} będzie zbiorem zmiennych zdaniowych występujących w formule A.
+
+Istnieje 2^n wartościowań tego zbioru. By wyznaczyć wartość A dla każdego z wartościowań nalezy utworzyc tabelę prawdziwościową formuły A.
+
+A = p \lor \not q \rightarrow \not p \land r
+V = {p, q, r} - zbiór zmiennych zdaniowych w A
+
+| p | q | r | \not p | \not q | p \lor \not q | \not p \land r | A |
+|---+---+---+-----+-----+----------+----------+---|
+| 1 | 1 | 1 |   0 |   0 |        1 |        0 | 0 |
+| 1 | 1 | 0 |   0 |   0 |        1 |        0 | 0 |
+| 1 | 0 | 1 |   0 |   1 |        1 |        0 | 0 |
+| 1 | 0 | 0 |   0 |   1 |        1 |        0 | 0 |
+| 0 | 1 | 1 |   1 |   0 |        0 |        1 | 1 |
+| 0 | 1 | 0 |   1 |   0 |        0 |        0 | 1 |
+| 0 | 0 | 1 |   1 |   1 |        1 |        1 | 1 |
+| 0 | 0 | 0 |   1 |   1 |        1 |        0 | 0 |
+
+
+
+- tautologia :: tautologią KRZ nazywamy formułę KRZ, która przyjmuje wartość logiczną 1 dla każdego warościowania.
+
+- kontrtautologia :: kontrtautologią KRZ nazywamy formułę KRZ, która przymuje wartość 0 dla każdego wartościowania
+
+
+#+begin_box
+Jeżeli A jest tautologią KRZ, a formuła A' powstaje z A przez podstawienie za wszystkie wystąpienia pewnej zmioennej zdaniowej dowolnej formuły, to formuła A' jest tautologią
+#+end_box
+
+
+- Przykład 1.
+  A = "Olsztyn leży nad Łyną lub nieprawda, że Olsztyn leży nad Łyną."
+
+  1. Schemat logiczny A
+     p \lor \not p
+
+  2. Wartościowania - A zawiera 1 zmienną zdaniową, więc liczba wartościowań to 2^1
+     p = 0, p \lor \not p = 0 \lor \not 0 = 0 \lor 1 = 1
+     p = 1, p \lor \not p = 1 \lor \not 1 = 1 \lor 0 = 1
+
+  3. A jest 1 dla wszystkich wartościowań, więc A jest tautologią
+
+
+- Przykład 2.
+  A = p \rightarrow (p \lor q)
+
+  + Dowód wprost
+    V = {p, q} - liczba wartosciowań to 2^2 = 4
+
+    | p | q | p \lor q | p \rightarrow p \lor q |
+    |---+---+--------+------------|
+    | 1 | 1 |      1 |          1 |
+    | 1 | 0 |      1 |          1 |
+    | 0 | 1 |      1 |          1 |
+    | 0 | 0 |      0 |          1 |
+
+    Dla każdego wartościowania zmiennych p i q fomruła jest prawdziwa, zatem jest tautologią.
+
+  + Dowód nie wprost
+
+    1. Zakładamy, że A nie jest tautologią. Istnieje wtedy wartościowanie, dla którego A = 0.
+
+       A ma formę B \rightarrow C. Implikacja jest fałszywa tylko gdy B = 1 i C = 0. Ten warunek zachodzi tylko gdy:
+
+       a. p = 1 i p \lor q = 0
+
+       b. p \lor q jest fałszywe tylko wtedy gdy p = 0 i q = 0. Ponieważ p = 1 (a) i p = 0 (b) są sprzeczne, nie istnieje wartościowanie, dla którego A = 0. Zatem A jest tautologią.
+
+* Podstawy logiki 2
+
+- Wynikanie logiczne :: mówimy, że formuła A wynika logicznie z formuł A_1, A_2, ..., A_n w KRZ, jeżeli dla każdego wartościownia takiego że w(A_1) = ... = w(A_n) = 1 również w(A) = 1.
+  {A_1, ..., A_n} |= A
+
+  Formuła A wynika logicznie z formuł A_1, ..., A_n iff A_1 \land ... \land A_n \rightarrow A jest tautologią KRZ.
+
+  Ponieważ p \rightarrow q jest fałszywe tylko dla p = 1, q = 0, A wynika z A_1, ..., A_n jeżeli A \neq 0
+
+
+- Wnioskowanie :: układ zdań, z których jedno jest wyróżnione jako wniosek, a pozostałe są przesłankami. W KRZ schematy wnioskowań zapisujemy w postaci:
+
+  \( \frac{A_1, ..., A_n}{A} \)
+
+- Niezawodny schemat wniskowania :: taki schemat wnioskowania, w którym wniosek wynika logicznie z przeslanek w KRZ.
+
+
+- Wnioskowanie dedukcyjne :: wnioskowanie którego schemat jest niezawodny.
+
+- Równoważność logiczna :: formuła A jest równoważna logicznie formule B w KRZ, jeżeli W(A) = W(B) dla każdego W.
+
+  Formuła A jest równoważna formule B w KRZ iff formuła A \leftrightarrow B jest tautologią KRZ.
+
+  Równość (a \leftrightarrow b) jest tautologią jeżeli a = b (dla każdego wartościownia).
+
+  Jeżeli formuły A i B są równoważne w KRZ, a formuła C' powstaje z C przez zastapienie niektórych wystapień A przez B, to formuły C i C' są równoważne.
+
+- TODO: Dodatkowe funktory logiczne
+
+
+- Definiowalność spójnika logicznego :: spójnik jednoargumentowy s jest definiowalny przez formułę A(p) gdy formuła s p jest równoważna logicznie formule A(p). Mówimy, że spójnik dwuargumentowy s jest definiowalny przez formułę A(p, q) gdy formuła p `s` q jest równowazna formule A(p, q).
+  
+
+* Podstawy logiki 3
+
+
+** Postacie normalne formuł KRZ
+- literały :: formuły p i \not p, gdzie p jest dowolną zmienną zdaniową.
+
+- alternatywa elementarna :: alternatywa skończenie wielu literałów.
+
+- koniunkcja elementarna :: koniunkcja skończenie wielu literałów.
+
+- formuła w koniunkcyjnej postaci normalnej (kpn) :: koniunkcja skończenie wielu alternatyw elementarnych.
+
+- formuła w alternatywnej postaci normalnej (apn) :: alternatywa skończenie wielu koniunkcji elementarnych.
+
+#+begin_box
+Każda formuła KRZ jest logicznie równoważna pewnej formule w kpn i pewnej formule apn
+#+end_box
+
+
+#+begin_box
+Formuła w kpn jest tautologią KRZ iff w każdej składowej alternatywie elementarnej występuje para przeciwnych literałów.
+#+end_box
+
+#+begin_box
+Formuła w apn jest kontrtautologią iff w każdej składowje koniunkcji elementarnej wystepuje para przeciwnych literałów.
+#+end_box
+
+
+** Sprowadzanie formuł KRZ do apn i kpn metodą przekształceń równoważnych
+
+Podformuły danej formuły zastępujemy formułami równoważnymi w następującej kolejności:
+
+1. Eliminujemy spójniki \leftrightarrow i \rightarrow zastępując odpowiednio:
+   + c \leftrightarrow d przez (c \rightarrow d) \land (d \rightarrow c)
+   + c \rightarrow d przez (\not c \lor d)
+
+2. Wprowadzamy znak negacji do wnetrza oraz usuwamy podwójną negację zastępując odpowiednio:
+   + \not(c1 \land ... \land ck) przez (\not c1 \lor ... \lor \not ck)
+   + \not(c1 \lor ... \lor ck) przez (\not c1 \land ... \land \not ck)
+   + \not\not c przez c
+
+3. Stosujemy:
+   + Rozdzielczość koniunkcji względem alternatywy (kpn):
+     - d \lor (c1 \land ... \land ck) przez (d \lor c1) \land ... \land (d \lor ck)
+     - (c1 \land ... \land ck) \lor d przez (c1 \lor d) \land ... \land (ck \lor d)
+   + Rozdzielczość alternatywy względem koniunkcji (apn):
+     - d \land (c1 \lor ... \lor ck) przez (d \land c1) \lor ... \lor (d \land ck)
+     - (c1 \lor ... \lor ck) \land d przez (c1 \land d) \lor ... \lor (ck \land d)
+
+       
+     
+    
+** Sprowadzanie formuł KRZ do apn i kpn metodą tablicową
+
+A = p \land q \leftrightarrow q \land \not r
+
+| p | q | r | p \land q | \not r | q \land \not r | A | apn | kpn |
+|---+---+---+--------+-----+----------+---+-----+-----|
+| 1 | 1 | 1 |      1 |   0 |        0 | 0 |     |     |
+| 1 | 1 | 0 |        |     |          |   |     |     |
+| 1 | 0 | 1 |        |     |          |   |     |     |
+| 1 | 0 | 0 |        |     |          |   |     |     |
+| 0 | 1 | 1 |        |     |          |   |     |     |
+| 0 | 1 | 0 |        |     |          |   |     |     |
+| 0 | 0 | 1 |        |     |          |   |     |     |
+| 0 | 0 | 0 |        |     |          |   |     |     |
+
+
+** Reguły tworzenia drzewa dowodowego
+
+
+
+
