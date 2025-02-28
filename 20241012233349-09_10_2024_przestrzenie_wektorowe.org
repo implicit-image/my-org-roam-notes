@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:       26d0b755-761d-46a2-9b77-abba17f85801
+:END:
+#+title: [09.10.2024] - przestrzenie wektorowe
+
+
+
+* Przestrzenie wektorowe
+
+- Przestrzeń wektorowa R^{n} :: rzeczywistą n-wymiarową przestrzenią wektorową (liniową) R^{n} nazywamy zbiór n-wyrazowych ciągów liczb rzeczywistych [x_{1}, x_{2},..., x_{n}] z następującymi działaniami dodawania wektorów (do siebie, wektor + wektor) i mnożenia wektor przez liczby:
+  - [x_{1}, x_{2},..., x_{n}] + [y_{1}, y_{2},..., y_{n}_{}] :=  
+
+
+
+
+* dsf
+\begin{equation}
+a * \lb
+\end{equation}
+* 

@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       f6503562-b5bc-4f19-a5d0-2ea661348a2e
+:END:
+#+title: [Book] The Dialectical Biologist
+
+
+
+* :toc:
+
+* Intro
+
+** md
+
+
+

@@ -1,0 +1,274 @@
+:PROPERTIES:
+:ID:       c2ecf9be-f4a3-4a2c-ae8f-ffdfdd0f5f4d
+:END:
+#+title: Ownership in rust
+
+* Table of contents :toc:
+
+* Ownership rules
+- each value has an owner
+- 1 owner at a time
+- value is dropped as soon as the owner goes out of scope
+
+* Variable scope
+
+#+begin_src rust
+
+{
+    // s is not valid
+    
+    let s = "hello"; // s becomes valid
+    
+} // s is no longer valid, as the scope ends
+
+#+end_src
+
+
+
+** Data stored in heap
+
+~Strings~ are allocated on heap at runtime, and as such are good examples of compelex datatypes that ownership empowers.
+
+#+begin_src rust
+use std::string;
+
+
+let mut s = String::from("hello");
+
+s.push_str(", world!"); // push the arg onto s
+
+println!("{s}"); // print the modified string
+
+#+end_src
+
+#+RESULTS:
+: hello, world!
+
+
+As rust frees the memory allocated for a variable (owner) as soon as the it goes out of scope, it is necessary for it to ensure that there is 1 owner per allocated memory range.
+
+
+#+begin_src rust
+
+let s1 = String::from("hello");
+let s2 = s1; // this copies only the data thats on the stack, not the contents of the actual string
+
+s1.push_str(", world!"); // tries to push to s1, which was moved to s2, making the s1 reference invalid
+
+println!("{s2}");
+
+#+end_src
+
+#+RESULTS:
+: error: Could not compile `cargoHibGgx`.
+
+
+If this isnt guaranteed, the program will not compile. ~rustc~ calls this error "move", that is:
+- assign a complex data type to a variable ~s1~; which:
+  + allocates memory on heap
+  + pushes data on stack
+- assign ~s1~ to ~s2~; which:
+  + copies ~s1~ stack data to ~s2~ (including pointer to heap data)
+  + as ~s1~ is no longer a unique owner, it is invalidated
+- try to access ~s1~
+
+Having this in mind, it looks like:
+- rust doesnt create deep copies by default; if the data is all on stack, it is copied without invalidation as the coresspondence of owner and data is preserved:
+  1. s1 -> stack s1
+  2. let s1 = s2
+  3. s2 -> stack s2 (copied on stack)
+
+- if the stack data points to memory on heap, the default behaviour is to copy stack data (including the heap pointer) and to invalidate the previous owner. As the invalidates owner goes out of scope, and off the stack. The remaining, valid owner remains until it also goes out of scope, when it is dropped, stack is popped and heap is freed.
+
+** Deep copies
+
+In order to perform a ~deep copy~, that is allocate heap space for a copy of original owners data, ~rust~ uses ~.clone~ method.
+
+#+begin_src rust
+let s1 = String::from("hello");
+let s2 = s1.clone();
+
+println!("{s1}, {s2}");
+#+end_src
+
+#+RESULTS:
+: hello, hello
+
+** Copy & Drop traits
+
+~rust~ uses ~Copy~ trait in order to implement shallow copy behaviour for types that store all of their data on stack. It is implemented by:
++ all integer types
++ bool
++ floating-point types
++ char
++ tuples of above types
+
+
+
+
+** Functions
+
+*** Passing arguments to functions
+
+#+begin_src rust
+
+fn takes_ownership(taken_string: String) { // taken_string in scope
+    println!("{taken_string}");
+} // taken_string out of scope, dropped
+
+fn makes_copy(copied_int: i32) { // copied_int in scope
+    // as copied_int is an integer, it implements Copy behaviour that copies data on stack
+    println!("{copied_int}");
+} // copied_int out of scope; as copied_int does no allocate heap, no heap is freed
+
+fn main() {
+    
+    let s = String::from("hello"); // s in scope, allocates heap
+
+    takes_ownership(s); // as this function takes ownership, it frees the memory and invalidates the owner
+    // therefore s is now invalid and accessing it will throw a compile error
+
+    let x = 5;
+
+    makes_copy(x);
+}
+
+#+end_src
+
+#+RESULTS:
+: hello
+: 5
+
+
+*** Returning values from functions
+
+#+begin_src rust
+
+fn gives_ownership() -> String {
+    let some_string = String:from("hello"); // some_string in scope
+    return some_string; // moves into outer scope
+}
+
+fn takes_and_gives_back(some_string: String) -> String { //some_string in scope
+    // in the body nothing happens to the binding
+    return some_string; // moves into outer scope
+}
+
+fn main() {
+    let s1 = gives_ownership(); // s1 in scope
+
+    let s2 = String::from("hello"); // s2 in scope
+
+    let s3 = takes_and_gives_back(s2); // s2 moved into takes_and_gives_back, it moves its return value into s3
+} // s1 and s3 go out of scope and are dropped
+  // s2 was moved to takes_and_gives_back
+
+#+end_src
+
+
+This juggling of onwership in order to pass values to functions is quite tedious, and is solved by ~references~.
+
+
+
+** References
+A reference is a variables that does not have ownership of what it refers to.
+
+#+begin_src rust
+fn calculate_length(s: &String) -> usize { // the reference in scope
+    s.len() 
+} // 
+
+fn main() {
+    let s1 = String::from("hello");
+    // doesnt pass the value, but rather the reference to it, which doesnt transfers ownership
+    let len = calculate_length(&s1);
+
+    // this means that s1 is not dropped in calculate_length and can be used after passing the reference to a function
+    println!("The length of '{s1}' is {len}");
+}
+#+end_src
+
+#+RESULTS:
+: The length of 'hello' is 5
+
+Creating a reference is called ~borrowing~.
+
+References are immutable by default
+
+#+begin_src rust
+fn change(some_string: &String) {
+    some_string.push_str(", world!");
+}
+
+fn main() {
+    let s = String::from("hello");
+    change(&s);
+}
+#+end_src
+
+#+RESULTS:
+: error: Could not compile `cargoDa8Hrj`.
+
+Mutable references need to:
+- be references to mutable variables
+- be marked as mutable references
+- only one mutable reference to a value can exist at one time
+- a mutable reference can be created only if not other references to the value exist
+
+
+#+begin_src rust
+fn change(some_string: &mut String) { 
+    some_string.push_str(", world!");
+}
+
+fn main() {
+    let mut s = String::from("hello");
+    change(&mut s);
+}
+#+end_src
+
+*** Dangling references
+
+
+#+begin_src rust
+fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s // the reference is returned 
+}
+#+end_src
+
+*** Slices
+
+Slices allow to access a sequence of elements in a ~collection~ rather than all of them.
+
+
+#+begin_src rust
+
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+	if item == b' ' { //if we find a space
+	    return &s[0..i]; // return a splice from the start to the space (exclusive)
+	}
+    }
+    &s[..] //otherwise return the splice referring to the whole string
+}
+
+
+fn main() {
+    let s = String::from("hello, world");
+
+    let word = first_word(&s); // as word is a splice, it will be invalidated if the referent is invalidated
+
+    println!("{word}");
+}
+#+end_src
+
+#+RESULTS:
+: hello,

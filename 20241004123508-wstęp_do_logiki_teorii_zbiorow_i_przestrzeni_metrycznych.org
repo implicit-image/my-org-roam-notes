@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       4ea383c7-e3c1-4722-b239-d2c2c19e68f0
+:END:
+#+title: Wstęp do logiki, teorii zbiorów i przestrzeni metrycznych
+
+
+* Wykłady
+- dr. Mariusz Kwiatkowski
+
+
+* Ćwiczenia
+- mgr Maria Bulińska

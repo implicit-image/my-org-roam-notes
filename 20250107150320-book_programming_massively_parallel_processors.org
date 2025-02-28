@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       19936bd8-abe5-46f3-9483-a12efc05cb6f
+:NOTER_DOCUMENT: ~/library/libgen.li/Programming Massively Parallel Processors (Fourth Edition) (1047)/Programming Massively Parallel Processors - libgen.li.pdf
+:END:
+#+title: [Book] Programming massively parallel processors

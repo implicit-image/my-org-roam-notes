@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       11265232-ac70-4667-996c-153aa0bc582f
+:END:
+#+title: [03.10.2024] - własności funcji
+

@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       f0f91535-df54-42eb-8859-bcb8e024769e
+:END:
+#+title: Shell in C
+
+
+
+
+
+
+* Basic overview
+
+
+
+
+* Lifetime of a UNIX shell process

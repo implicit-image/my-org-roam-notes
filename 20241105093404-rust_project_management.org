@@ -1,0 +1,30 @@
+:PROPERTIES:
+:ID:       6302474d-1e74-475f-afb4-4dd559262319
+:END:
+#+title: Rust project management
+
+
+* Crate
+
+A ~crate~ is a minimal amount of code that compiler can compile. There are two kinds of ~crates~:
+- binary crates :: compile to executable programs, have to define a ~main~ function
+- library crates :: provide a functionality to be shared with other crates, doesnt produce an executable, doesnt define ~main~
+
+
+
+* Package
+a ~package~ is a bundle of one or more ~crates~ that provide a set of functionalities. It contains a ~package.toml~ that describes dependencies and other metadata. It can contain any number of library crates, but at most one binary crate.
+
+
+#+begin_src bash-ts
+#!/usr/bin/bash
+cargo new my-project
+#+end_src
+
+
+
+* Modules and scope
+
+
+
+

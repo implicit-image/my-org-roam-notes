@@ -1,0 +1,10 @@
+#+TITLE: notes
+
+- {{{timestamp(2024-09-13)}}} [[file:20240820001103-cs61a_fundamentals.org][cs61a fundamentals]]
+- {{{timestamp(2024-09-17)}}} [[file:20240916043302-electrical_enginneering_intro.org][Electrical Enginneering Intro]]
+- {{{timestamp(2024-09-13)}}} [[file:20240710190000-https_headers.org][Https headers]]
+- {{{timestamp(2024-09-27)}}} [[file:20240901224143-machine_learning_basics.org][Machine learning basics]]
+- {{{timestamp(2024-08-23)}}} [[file:20240820001323-nand2tetris.org][nand2tetris]]
+- {{{timestamp(2024-09-13)}}} [[file:20240830160513-org_mode_cheatsheet.org][Org mode cheatsheet]]
+- {{{timestamp(2024-08-31)}}} [[file:20240819234312-studia.org][Studia]]
+- {{{timestamp(2024-09-09)}}} [[file:20240819231704-svelte.org][Svelte]]

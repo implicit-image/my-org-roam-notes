@@ -1,0 +1,68 @@
+:PROPERTIES:
+:ID:       b4e15970-8fa2-4d85-9857-cdeb98d3832e
+:END:
+#+title: Configuring LSP in Emacs
+
+
+* Overview
+
+
+** C
+*** Clangd
+- install clangd server
+  #+begin_src emacs-lisp
+  (lsp-install-server)
+  #+end_src
+
+*** CCLS
+- install ccls server
+
+  #+begin_src shell
+pacman -S ccls
+  #+end_src
+
+- install ccls client
+
+  #+begin_src emacs-lisp
+  (use-package ccls
+    :hook ((c-mode c++-mode c-ts-mode c++-ts-mode) . (lambda () (require 'ccls) (lsp))))
+  #+end_src
+
+** Rust
+
+- install rust anylyzer
+
+  #+begin_src shell
+rustup component add rust-analyzer
+  #+end_src
+
+
+- configure rustic-mode
+
+  #+begin_src emacs-lisp
+  (use-package rustic
+    :mode "\\.rs\\'"
+    :config
+    ;; configre other options here
+    (setq rustic-indent-offset 4
+        rustic-lsp-server "rust-analyzer"
+        rustic-format-trigger 'on-save)
+    :hook
+    (rustic-mode . (lambda ()
+  		   (lsp))))
+  #+end_src
+
+  
+** Javascript & Typescript
+
+- install LSP server:
+#+begin_src emacs-lisp
+(lsp-install-server t 'ts-ls)
+#+end_src
+
+- add language mode hooks
+#+begin_src emacs-lisp
+(use-package )
+#+end_src
+
+- configure the client

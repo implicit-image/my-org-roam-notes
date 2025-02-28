@@ -1,0 +1,18 @@
+:PROPERTIES:
+:ID:       9718c5bc-23bd-4a5c-8f8b-dd1664d51076
+:END:
+#+title: Repetytorium matematyczne
+
+
+
+* Ćwiczenia
+- dr. Aleksandra Kiślak-Malinowska
+- 5 nieusprawiedliwionych nieobecności
+- 2 kolokwia po 20 pkt
+- 1 poprawa / kolokwium
+- 20pkt do zaliczenia przedmiotu
+- punkty za aktywność na zajęciach
+- konsultacje wt 11:15 - 12:30
+
+** Notatki
+- [[id:11265232-ac70-4667-996c-153aa0bc582f][[03.10.2024] - własności funcji]] 

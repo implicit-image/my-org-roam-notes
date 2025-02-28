@@ -1,0 +1,153 @@
+:PROPERTIES:
+:ID:       48126af0-bb01-461b-a4f3-ea5b2fa287ee
+:END:
+#+title: Org mode cheatsheet
+#+filetags: :notes:
+
+* Table of contents :toc:noexport:
+- [[#drawing-graphs][Drawing graphs]]
+  - [[#org-plot-using-gnuplot][Org plot (using Gnuplot)]]
+  - [[#using-matplotlib][using matplotlib]]
+- [[#writing-latex][Writing LaTeX]]
+- [[#handling-source-code][Handling source code]]
+  - [[#useful-header-arguments][Useful header arguments]]
+
+* Drawing graphs
+
+** Org plot (using Gnuplot)
+
+#+begin_example org
+
+#+plot: title:"Cities" file:"./resources/cities.png" ind:1 deps:(3) type:2d with:histogram set:"ytange [0:]"
+| Sede      | Max cites | H-index |
+|-----------+-----------+---------|
+| Chile     |    257.72 |   21.39 |
+| Leeds     |    165.77 |   19.68 |
+| Sao Paolo |     71.00 |   11.50 |
+| Stockholm |    134.19 |   14.33 |
+| Olsztyn   |     234.3 |   34.32 |
+| Morelia   |    257.56 |   17.67 |
+
+#+end_example
+
+which results in:
+
+#+plot: title:"Cities" file:"./resources/cities.png" ind:1 deps:(3) type:2d with:histogram set:"ytange [0:]"
+| Sede      | Max cites | H-index |
+|-----------+-----------+---------|
+| Chile     |    257.72 |   21.39 |
+| Leeds     |    165.77 |   19.68 |
+| Sao Paolo |     71.00 |   11.50 |
+| Stockholm |    134.19 |   14.33 |
+| Olsztyn   |     234.3 |   34.32 |
+| Morelia   |    257.56 |   17.67 |
+
+[[file:resources/cities.png][cities-graph]]
+
+** using matplotlib
+The data:
+#+name: my-table
+| one | two | three | four |
+|-----+-----+-------+------|
+|   1 |   2 |     3 |    4 |
+|   5 |   6 |     7 |    8 |
+|   9 |  10 |    11 |   12 |
+|  13 |  14 |    15 |   16 |
+|  17 |  18 |    19 |   20 |
+|  21 |  22 |    23 |   24 |
+|  25 |  26 |    27 |   28 |
+|  29 |  30 |    31 |   32 |
+|  33 |  34 |    35 |   36 |
+
+
+#+begin_src python :results file :var data=my-table :exports both
+import matplotlib.pyplot as plt
+
+#Turn the table data into x and y data
+x = [a[0] for a in data]
+y1 = [a[1] for a in data]
+y2 = [a[2] for a in data]
+y3 = [a[3] for a in data]
+
+# Plot the x and y data
+a, = plt.plot(x, y1, label="y1", marker='v')
+b, = plt.plot(x, y2, label="y2", marker='o')
+c, = plt.plot(x, y3, label="y3", marker='x')
+
+# Set the x and y labels on the graph
+plt.xlabel("x axis label")
+plt.ylabel("y axis label")
+
+# Create the legend
+plt.legend(handles=[a,b,c],loc="upper left")
+
+# Save the PNG file
+filename = "./resources/mySweetPlot.png"
+plt.savefig(filename)
+
+# bcs of :results file header arg, we must return a file name to link
+return(filename)
+
+#+end_src
+
+#+RESULTS:
+[[file:./resources/mySweetPlot.png]]
+
+
+* Writing LaTeX
+LaTeX fragments can be inserted inline:
+
+#+begin_example org
+if $a^2=b$ and \( b/=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+#+end_example
+
+as a full fragment:
+#+begin_example org
+\begin{equation}
+x=\sqrt{2}
+\end{equation}
+
+#+end_example
+
+or as a block for export or evaluation
+
+#+begin_example org
+#+begin_src latex
+\begin{equation}
+x=\sqrt{2}
+\end{equation}
+#+end_src
+#+end_example
+
+
+* Handling source code
+
+Source code caan be included in source blocks:
+#+begin_example org
+#+begin_src <language>
+<code>
+#+end_src
+
+#+end_example
+** Useful header arguments
+- -n <?number> makes the code block have line numbers. Numbers start at either 0 or <number> (if given).
+#+begin_example org
+#+begin_src python -n
+def test():
+    print("hello")
+#+end_src
+#+end_example
+
+results in:
+
+#+begin_src python -n
+def test():
+    print("hello")
+#+end_src
+
+- :exports
+
+
+#+begin_src
+
+#+end_src

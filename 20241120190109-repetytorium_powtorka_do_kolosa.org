@@ -1,0 +1,40 @@
+:PROPERTIES:
+:ID:       16d2c3b5-ffe4-464d-8dc5-8fb80eb9ac93
+:END:
+#+title: Repetytorium - powtórka do kolosa
+
+
+* Własności funkcji
+** dziedzina
+- f(x) = x^{2}(x - 3) + 9(x-3) ::
+x^{3} - x^{2} + 9x - 27
+f: R -> R
+- f(x) = =√2x^{2} - 18 :: 2x^{2} - 18 >= 0 = x^{2} >= 9 = x >= 3 \land x <= -3 f: (-\infin, 3> \cup <3, \infin) -> R
+- f(x) = \frac{x-1}{|x^{2} - 1| - 1} ::
+f(x) ma wartości dla |x^{2} - 1| - 1 \ne 0
+
+** zbiór wartości
+
+** parzystość
+
+- funkcja parzysta :: f(x) jest parzysta, jeżeli dla każdego argumentu z dziedziny x spełnia warunek f(x) = f(-x), tzn. wykres jest symetryczny względem OY.
+
+- funkcja nieparzysta :: f(x) jest nieparzysta, jeżeli dla każdego argumentu z dziedziny x spełnia warunek f(x) = -(f-x), tzn wykres jest symetryczny względem początku układu współrzędnych.
+
+- badanie parzystości funkcji ::
+* Złożenia funkcji
+- złożenie funkcji :: jeżeli f: X -> Y i g: Y -> Z to funkcję g \circ f : X -> Z nazywamy złożeniem funkcjif i g.
+  + (g \circ f)(x) = g(f(x))
+* Funkcje odwrotne
+- funkcja odwrotna :: jezeli
+* Wykresy funkcji
+* Równania i nierówności z wartością bezwzględną
+* Wierzchołek i miejsca przecięcia z OX
+* Wartości funkcji w danym przedziale
+* Równania parametryczne
+
+
+
+
+* Kolokwium próbne
+** Zad. 1.

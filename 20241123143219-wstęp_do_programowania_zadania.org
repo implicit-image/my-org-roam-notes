@@ -1,0 +1,913 @@
+:PROPERTIES:
+:ID:       6bcdbd1f-d788-49aa-9061-62ea821a3027
+:END:
+#+title: Wstęp do programowania - zadania
+#+PROPERTY: header-args :results output
+#+export_file_name: studia_wdp_zadania
+
+
+* :toc:
+- [[#zestaw-1][Zestaw 1]]
+  - [[#ćwiczenie-1][Ćwiczenie 1]]
+  - [[#ćwiczenie-2][Ćwiczenie 2]]
+  - [[#todo-ćwiczenie-3][TODO: Ćwiczenie 3]]
+  - [[#ćwiczenie-4][Ćwiczenie 4]]
+  - [[#ćwiczenie-5][Ćwiczenie 5]]
+  - [[#ćwiczenie-6][Ćwiczenie 6]]
+  - [[#ćwiczenie-7][Ćwiczenie 7]]
+- [[#zestaw-2][Zestaw 2]]
+  - [[#ćwiczenie-1-1][Ćwiczenie 1]]
+  - [[#ćwiczenie-2-1][Ćwiczenie 2]]
+  - [[#ćwiczenie-3][Ćwiczenie 3]]
+- [[#zestaw-3][Zestaw 3]]
+  - [[#ćwiczenie-1-2][Ćwiczenie 1]]
+  - [[#ćwiczenie-2-2][Ćwiczenie 2]]
+- [[#zestaw-4][Zestaw 4]]
+  - [[#ćwiczenie-1-3][Ćwiczenie 1]]
+
+* Zestaw 1
+
+** Ćwiczenie 1
+
+#+begin_src python
+
+#+end_src
+
+** Ćwiczenie 2
+
+#+begin_src python
+print("Tomek Maciek Filip Zdzisław Ewa")
+print("Tomek", "Maciek", "Filip", "Zdzisław", "Ewa", sep="\n")
+#+end_src
+
+#+RESULTS:
+: Tomek Maciek Filip Zdzisław Ewa
+: Tomek
+: Maciek
+: Filip
+: Zdzisław
+: Ewa
+
+#+begin_src python
+print(f'{4 * "ab"}')
+print(f'{"ab" * 4}')
+print(f'{"dasd" + "afafa"}')
+
+# TypeError: can't multiply sequence by non-int of type 'str'
+# print(f'{"dasd" * "afafa"}')
+
+# TypeError: unsupported operand type(s) for -: 'str' and 'int'
+# print(f'{"dasd" - 4}')
+#+end_src
+
+#+RESULTS:
+: abababab
+: abababab
+: dasdafafa
+
+#+begin_src python
+print("w" * 100)
+#+end_src
+
+#+begin_src python
+a = 3
+b = 5
+print(f'{a + b}', f'{pow(a, b)}')
+#+end_src
+
+#+RESULTS:
+: 8 243
+
+** TODO: Ćwiczenie 3
+
+Żeby poprawnie 'przetłumaczyć' wyrażenia matematyczne na pythona, należy:
+1.
+
+
+
+** Ćwiczenie 4
+
+#+begin_src python
+from math import sqrt
+
+pi = 3.14151926
+e = 2.718281828
+
+results = [25 * pi, pi ** 2, 18 * e + pi, e * (pi + 2), pi ** 2, sqrt(12 * e), e - pi, pi / (e ** 2), 2 ** (1/2), pi ** (1/2)]
+print(*results, sep="\n")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+78.5379815
+9.869143260950947
+52.070592164
+13.976098372770005
+9.869143260950947
+5.711338016262038
+-0.4232374320000001
+0.42515839898896973
+1.4142135623730951
+1.7724331468351635
+#+end_example
+
+** Ćwiczenie 5
+
+#+begin_src python
+from math import pi
+
+def deg_to_rad(degrees):
+    # 360 + x stopni w radianach to tyle samo co x stopni w radianach
+    degrees = degrees % 360
+    # należy rozwiązac proporcję
+    # degrees / 360 = radians / 2 * pi
+    radians = (degrees * 2 * pi) / 360
+    return radians
+
+print(f'{deg_to_rad(180)}, {deg_to_rad(90)}, {deg_to_rad(60)}')
+
+def rad_to_deg(radians):
+    radians = radians % (2 * pi)
+    # należy rozwiązać tą sama proporcję w drugim kierunku,
+    # tzn. wyprowadzając wzór na stopnie
+    degrees = (radians * 360) / (2 * pi)
+    return degrees
+
+print(f'{rad_to_deg(pi)}, {rad_to_deg(1/2 * pi)}, {rad_to_deg(1/3 * pi)}')
+
+#+end_src
+
+#+RESULTS:
+: 3.141592653589793, 1.5707963267948966, 1.0471975511965976
+: 180.0, 90.0, 59.99999999999999
+
+** Ćwiczenie 6
+Python udostępnia wbudowaną funkcję ~bin()~, która zwraca binarną reprezentację podanej liczby typu ~int~. Żeby dokonac odwrotnej operacji, należy użyć funkcji ~int~ z argumentem ~base=2~.
+
+#+begin_src python
+def bin_to_dec(bin_num):
+    return int(bin_num, base=2)
+
+def dec_to_bin(num):
+    return bin(num)
+
+print(f'{bin_to_dec("0b1001")}')
+print(f'{dec_to_bin(9)}')
+#+end_src
+
+#+RESULTS:
+: 9
+: 0b1001
+
+Int jest w stanie konwertować na każdą podstawę jeżeli pierwszym argumentem jest ~string~ będący poprawną reprezentacja liczby o danej podstawie.
+
+#+begin_src python
+a = int("212", base=3)
+print(a)
+#+end_src
+
+#+RESULTS:
+: 23
+
+** Ćwiczenie 7
+Zmiany ceny można zapisać w ten sposób
+#+begin_src python :session prices :results none
+price = 670
+new_price = price * 0.6
+new_price_2 = new_price * 1.4
+#+end_src
+
+Zastąpić zmienną ~price~ jej wartością
+#+begin_src python :session prices :results none
+new_price = 670 * 0.6
+#+end_src
+
+Następnie zastąpić zmienną ~new_price~ jej definicją
+#+begin_src python :session prices :results none
+new_price_2 = price * 0.6 * 1.4
+#+end_src
+
+Ponieważ mnożenie jest przemienne, mozna zapisać ostateczną cenę jako:
+#+begin_src python :session prices
+new_price_2 = price * 0.6 * 1.4
+final_price = price * 0.84
+print(new_price_2 == final_price)
+#+end_src
+
+#+RESULTS:
+: True
+
+
+* Zestaw 2
+
+
+Ta funkcja jest jedynie dla ułatwienia pisania tych notatek. Pozwala ona na ręczne ustawienie wartości standardowego wejścia (~stdin~) dla podanej funkcji, dzięki czemu nie muszę ciągle wpisywać rożnych wartości.
+#+begin_src python :session io :results none
+from io import StringIO
+from typing import Callable
+import sys
+
+def set_stdin(value):
+    og_stdin = sys.stdin
+    new_stdin = StringIO(value)
+    # nadpisujemy ją stałą wartością, obiektem StringIO utworzonym z podanego napisu
+    sys.stdin = new_stdin
+    return og_stdin
+
+def run_with_stdin(function: Callable, input_value: str) -> any:
+    # zapisujemy domyślną wartość stdin
+    og_stdin = set_stdin(input_value)
+    # uruchamiamy funkcję i zapisujemy wartośc zwrotną
+    res = function()
+    # ustawiamy stdin z powrotem na domyślną wartość
+    sys.stdin = og_stdin
+    # zwracamy wartość otrzymana z uruchomionej funkcji
+    return res
+
+def run_with_stdin_queue(function: Callable, values: [str]) -> [any]:
+    results = []
+    old_stdin = sys.stdin
+    for v in values:
+        _ = set_stdin(v)
+        res = function()
+        results.append(res)
+    sys.stdin = old_stdin
+    return results
+
+
+#+end_src
+
+
+
+** Ćwiczenie 1
+#+begin_src python :session io
+def f():
+    # tutaj input() czyta wartośc stdin (nadpisaną przez run_with_stdin())
+    name = input("Imię: \n")
+    print("Hello,", name)
+
+run_with_stdin(f, "Błażej")
+#+end_src
+
+#+RESULTS:
+: Imię:
+: Hello, Błażej
+
+
+** Ćwiczenie 2
+1. Odstępy pomiędzy operandami operatorów
+2. Operatory złożone muszą byc razem (+=)
+#+begin_src python
+var1 = 2
+var2 = 3
+var1 += 2
+var3 = var1
+var1 *= 3
+var4 = var1 / var2
+#+end_src
+
+** Ćwiczenie 3
+a. Redukcja instrukcji ~if~
+#+begin_src python :session io
+def age_auth():
+    age = int(input("Wprowadź swój wiek: \n"))
+    if age >= 18:
+        if age <= 100:
+            print("Autoryzacja uzyskana")
+        else: print("Odmowa")
+    else: print("Odmowa")
+
+run_with_stdin(age_auth, "15")
+run_with_stdin(age_auth, "25")
+run_with_stdin(age_auth, "101")
+#+end_src
+
+#+RESULTS:
+: Wprowadź swój wiek:
+: Odmowa
+: Wprowadź swój wiek:
+: Autoryzacja uzyskana
+: Wprowadź swój wiek:
+: Odmowa
+
+Aby poprawić powyższy kod, należy zauważyć, że
+1. Jeżeli ~age >= 18~ jest fałszywe = odmowa
+2. Jeżeli ~age >= 18~ jest prawdziwe i  ~age <= 100~ jest fałszywe = odmowa
+3. W innym przypadku autoryzacja zostaje uzyskana
+4. Więc jeżeli 1. albo 2 są fałszywe = odmowa
+
+#+begin_src python
+if not age >= 18 or not age <= 100:
+    print("Odmowa")
+else:
+    print("Autoryzacja uzyskana")
+#+end_src
+
+5. Z II prawa De Morgana - alternatywa negacji (4) to negacja koniunkcji
+
+#+begin_src python
+if not (age >= 18 and age <=100):
+    print("Odmowa")
+else:
+    print("Autoryzacja uzyskana")
+#+end_src
+
+6. Gałąź ~else~ wyrażenia ~if~ jest ewaluowana jeżeli warunek nie jest prawdziwy, więc poniższa konstrukcja
+
+#+begin_src python :session cond
+condition = True
+
+if condition:
+    print("Warunek jest prawdziwy")
+else:
+    print("Warunek jest fałszywy")
+#+end_src
+
+jest równoważna tej konstrukcji
+
+#+begin_src python :session cond
+if condition:
+    print("Warunek jest prawdziwy")
+elif not condition:
+    print("Warunek jest fałszywy")
+#+end_src
+
+To wiedząc, możemy przekształcić galąź ~else~ w wyrażeniu w 5, korzystają dodatkowo z prawa podwójnej negacji
+
+#+begin_src python
+if not (age >= 18 and age <= 100):
+    print("Odmowa")
+elif (age >= 18 and age <= 100):
+    print("Autoryzacja uzyskana")
+#+end_src
+
+Następnie zmienic kolejność wyrażeń i zgodnie z 6 przemienić wyrażenie z negacją warunku w gałąż ~else~
+
+#+begin_src python :session io
+def age_auth():
+    age = int(input("Wprowadź swój wiek: \n"))
+#################################################
+    if (age >= 18 and age <= 100):              #
+        print("Autoryzacja uzyskana")           #
+    else:                                       #
+        print("Odmowa")                         #
+#################################################
+
+run_with_stdin(age_auth, "15")
+run_with_stdin(age_auth, "25")
+run_with_stdin(age_auth, "101")
+#+end_src
+
+#+RESULTS:
+: Wprowadź swój wiek:
+: Odmowa
+: Wprowadź swój wiek:
+: Autoryzacja uzyskana
+: Wprowadź swój wiek:
+: Odmowa
+
+b. usuwanie błędów
+#+begin_src python :session io
+def abs_val():
+    a = int(input("Wprowadź liczbę:\n"))
+    if a > 0:
+        print("|a|=", a)
+    else:
+        print("|a|=", (-a))
+
+run_with_stdin(abs_val, "-123")
+#+end_src
+
+#+RESULTS:
+: Wprowadź liczbę:
+: |a|= 123
+
+
+c. warunki
+#+begin_src python
+a = 50
+b = 10
+
+if a > b:
+    print("Hello world")
+#+end_src
+
+d. parzystość liczb
+#+begin_src python
+def is_even():
+    number = int(input("Liczba: \n"))
+    # jeżeli liczba podzielona na 2 nie ma reszty, to jest parzysta
+    if number % 2 == 0:
+        print("Parzysta")
+    else:
+        print("Nieparzysta")
+#+end_src
+
+e. max liczb zmiennoprzecinkowych
+
+#+begin_src python :session io
+
+def float_max():
+    inp = input("Podaj dwie liczby zmiennoprzecinkowe: \n")
+    numbers = inp.split(" ")
+    f1 = float(numbers[0])
+    f2 = float(numbers[1])
+    if f1 >= f2:
+        print(f1)
+    print(f2)
+
+run_with_stdin(float_max, "1.324 4.324"),
+run_with_stdin(float_max, "-324.324 45.324")
+
+#+end_src
+
+#+RESULTS:
+: Podaj dwie liczby zmiennoprzecinkowe:
+: 4.324
+: Podaj dwie liczby zmiennoprzecinkowe:
+: 45.324
+
+f. przedziały
+- liczba x jest w przedziale [a, b] jeżeli x >= a i x <= b
+#+begin_src python :session io
+def is_in_range_inclusive(x, start, end):
+    return x >= start and x <= end
+
+def in_what_range():
+    num = int(input("Podaj liczbę\n"))
+    flags = 0 | (1 * is_in_range_inclusive(num, 1, 10)) | (2 * is_in_range_inclusive(num, 17, 21))
+    if flags == 0:
+        print(num, " nie należy do żadnego z przedziałów")
+    elif flags == 1:
+        print(num, " należy do 1..10")
+    elif flags == 2:
+        print(num, " należy do 17..21")
+    else:
+        print(num, " należy do obu")
+
+
+run_with_stdin(in_what_range, "-1")
+run_with_stdin(in_what_range, "7")
+run_with_stdin(in_what_range, "18")
+#+end_src
+
+#+RESULTS:
+: Podaj liczbę
+: -1  nie należy do żadnego z przedziałów
+: Podaj liczbę
+: 7  należy do 1..10
+: Podaj liczbę
+: 18  należy do 17..21
+
+g. podzielność
+
+#+begin_src python :session io
+def divides_by(x, y):
+    return x % y == 0
+
+def divisibility():
+    number = int(input("Liczba: \n"))
+    answer = f'{number} jest podzielne'
+    by_three = "przez 3"
+    by_five = "przez 5"
+    if not divides_by(number, 3):
+        by_three = "nie " + by_three
+    if not divides_by(number, 5):
+        by_five = "nie " + by_five
+    print(f'{number} jest podzielne {by_three} i {by_five}')
+
+run_with_stdin(divisibility, "25")
+#+end_src
+
+#+RESULTS:
+: Liczba:
+: 25 jest podzielne nie przez 3 i przez 5
+
+h. kalkulator
+
+#+begin_src python :session io
+def evaluate(left, op, right):
+    if op == "+":
+        return left + right
+    elif op == "*":
+        return left * right
+    elif op == ":":
+        return left / right
+    elif op == "-":
+        return left - right
+
+def calculator():
+    left, right, op = input().split(" ")
+    left = int(left)
+    right = int(right)
+    print(evaluate(left, op, right))
+
+run_with_stdin(calculator, "34 67 +")
+#+end_src
+
+#+RESULTS:
+: 101
+
+i. konwerter temperatur
+
+#+begin_src python :session io
+
+def convert_temp(temp, current_unit):
+    if current_unit == "F":
+        return 5/9 * (temp - 32)
+    elif current_unit == "C":
+        return (9/5 * temp) + 32
+    else:
+        return None
+
+def other_unit(unit):
+    if unit == "F":
+        return "C"
+    elif unit == "C":
+        return "F"
+    else:
+        return None
+
+def converter():
+    temp, unit = input().split(" ")
+    temp = float(temp)
+    conv1 = convert_temp(temp, unit)
+    conv2 = convert_temp(conv1, other_unit(unit))
+    conv3 = convert_temp(temp, unit)
+    print(conv1)
+    print(conv2)
+    print(conv3)
+
+run_with_stdin(converter, "45 F")
+#+end_src
+
+#+RESULTS:
+: 7.222222222222222
+: 45.0
+: 7.222222222222222
+
+j. TODO: trójka pitagorejska
+
+#+begin_src python :session io :results verbatim
+
+def pyt_triple():
+    numbers = [int(a) for a in input().split(" ")]
+    sum_of_squares = 0
+    m = numbers[0]
+    for n in numbers:
+        print(m, n)
+        if m < n:
+            sum_of_squares += m ** 2
+            m = n
+        else:
+            sum_of_squares += n ** 2
+    print(f'{m ** 2}, {sum_of_squares}')
+    if m ** 2 == sum_of_squares:
+        print("Liczby stanowią trójkę pitagorejską")
+    else:
+        print("To nie jest trójka pitagorejska")
+
+
+
+
+run_with_stdin(pyt_triple, "8 3 89")
+run_with_stdin(pyt_triple, "37 34 29")
+run_with_stdin(pyt_triple, "38 92 2")
+run_with_stdin(pyt_triple, "3 4 5")
+run_with_stdin(pyt_triple, "6 4 9")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+8 8
+8 3
+8 89
+7921, 137
+To nie jest trójka pitagorejska
+37 37
+37 34
+37 29
+1369, 3366
+To nie jest trójka pitagorejska
+38 38
+38 92
+92 2
+8464, 2892
+To nie jest trójka pitagorejska
+3 3
+3 4
+4 5
+25, 34
+To nie jest trójka pitagorejska
+6 6
+6 4
+6 9
+81, 88
+To nie jest trójka pitagorejska
+#+end_example
+
+
+* Zestaw 3
+
+
+** Ćwiczenie 1
+a. suma liczb parzystych
+#+begin_src python
+even_numbers = [n for n in range(2, 101) if n % 2 == 0]
+s = 0
+for n in even_numbers:
+    s += n
+print(s)
+#+end_src
+
+#+RESULTS:
+: 2550
+
+b. znajdź parzyste i nieparzyste
+
+#+begin_src python :session io
+def even_and_odd():
+    numbers = [int(s) for s in input().split(" ")][:5]
+    evens = 0
+    for n in numbers:
+        if n % 2 == 0:
+            evens += 1
+    odds = 5 - evens
+    print(f'parzyste: {evens}, nieparzyste {odds}')
+
+run_with_stdin(even_and_odd, "1 2 7 3 4")
+#+end_src
+
+#+RESULTS:
+: parzyste: 2, nieparzyste 3
+
+c. suma kwadratów liczb od 1 do 100 włącznie
+
+#+begin_src python
+s = 0
+for n in range(1, 101): # range(a, b) to zakres <a, b)
+    s += n ** 2
+print(s)
+#+end_src
+
+#+RESULTS:
+: 338350
+
+d. suma potęg liczby 2 dla wykładników od 1 do 63
+
+#+begin_src python
+s = 0
+for n in range(1, 64):
+    s += 2 ** n
+print(s)
+#+end_src
+
+#+RESULTS:
+: 18446744073709551614
+
+e. suma liczb nieparzystych pommiędzy a i b, gdzie a i b są liczbami całkowitymi zczytanymi z ~stdin~
+#+begin_src python :session io
+def odd_sum():
+    a, b = [int(a) for a in input().split(" ")]
+    s = 0
+    for n in range(a, b + 1):
+        if n % 2 != 0:
+            print(n)
+            s += n
+    print(s)
+
+run_with_stdin(odd_sum, "23 32")
+#+end_src
+
+#+RESULTS:
+: 23
+: 25
+: 27
+: 29
+: 31
+: 135
+
+f. trójkąt
+
+#+begin_src python :session io
+
+def number_triangle():
+    num = int(input())
+    if num <= 0:
+        print("Podaj liczbe dodatnią")
+        return -1
+    # n okresla ile elementów z zakresu bierzemy w wewnętrznej petli
+    for n in range(1, num + 1):
+        # m przybiera wrtość elemetów do wypisania
+        for m in range(1, n + 1):
+            print(m, end="")
+        print("")
+
+run_with_stdin(number_triangle, "5")
+run_with_stdin(number_triangle, "10")
+run_with_stdin(number_triangle, "4")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+1
+12
+123
+1234
+12345
+1
+12
+123
+1234
+12345
+123456
+1234567
+12345678
+123456789
+12345678910
+1
+12
+123
+1234
+#+end_example
+
+g. suma n liczb
+#+begin_src python :session io
+from random import random, randint, choice
+
+def read_number():
+    n = float(input(f'Liczba: '))
+    return n
+
+def sum_real():
+    num_of_nums = int(input())
+    s = 0
+    inputs = []
+    while num_of_nums > 0:
+        randnum = random() * randint((-10), 10)
+        s += randnum
+        num_of_nums -= 1
+    print(s)
+
+
+run_with_stdin(sum_real, "10")
+run_with_stdin(sum_real, "7")
+#+end_src
+
+#+RESULTS:
+: -7.595877838615641
+: 5.46393404623096
+
+h. podzielnosć n liczb
+
+#+begin_src python :session io
+
+def divisibility_real():
+    num_of_nums = abs(int(input()))
+    c = 0
+    while num_of_nums > 0:
+        n = randint(1, 100)
+        if divides_by(n, 3) and not divides_by(n, 5):
+            c += 1
+        num_of_nums -= 1
+    print(c)
+
+run_with_stdin(divisibility_real, "10")
+#+end_src
+
+#+RESULTS:
+: 3
+
+** Ćwiczenie 2
+
+a. znaki z klawiatury
+
+#+begin_src python :session io
+import string
+
+def random_letter():
+    return choice(string.ascii_letters)
+
+def chars_to_x():
+    old_stdin = set_stdin(random_letter())
+    char = input()
+    c = 0
+    while char != "x":
+        _ = set_stdin(random_letter())
+        char = input()
+        print(char)
+        c += 1
+    print(c)
+    sys.stdin = old_stdin
+
+chars_to_x()
+#+end_src
+
+#+RESULTS:
+: t
+: N
+: H
+: x
+: 4
+
+b. dwukrotność
+#+begin_src python :session io
+def print_double_if_not_in_range():
+    c = int(input())
+    if c not in range(1, 11):
+        print(c * 2)
+
+
+run_with_stdin_queue(print_double_if_not_in_range, ["32", "23", "12", "11", "10"])
+
+#+end_src
+
+#+RESULTS:
+: 64
+: 46
+: 24
+: 22
+
+c. znajdź zero
+
+d. zgadywanie
+
+#+begin_src python :session io
+def guessing_game():
+    random_number = randint(1, 100)
+    guess_counter = 1;
+    old_stdin = set_stdin(str(randint(1, 100)))
+    guess = int(input())
+    while guess != random_number:
+        if guess > random_number:
+            print("Szukana wartość jest mniejsza")
+        elif guess < random_number:
+            print("Szukana wartość jest większa")
+        _ = set_stdin(str(randint(1, 100)))
+        guess = int(input())
+        guess_counter += 1
+    sys.stdin = old_stdin
+    print(f'Udało ci się zgadnąc po {guess_counter} próbach')
+
+
+guessing_game()
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Szukana wartość jest większa
+Szukana wartość jest mniejsza
+Szukana wartość jest większa
+Szukana wartość jest mniejsza
+Szukana wartość jest większa
+Szukana wartość jest większa
+Szukana wartość jest większa
+Szukana wartość jest większa
+Szukana wartość jest mniejsza
+Szukana wartość jest większa
+Udało ci się zgadnąc po 11 próbach
+#+end_example
+
+e. kolejne potęgi
+
+#+begin_src python :session io
+def powers():
+    m = abs(int(input()))
+    exp = 0
+    p = 1
+    while p < m:
+        exp += 1
+        p *= 3
+    print(f'{p} jest większe od {m}')
+
+
+
+run_with_stdin(powers, "23")
+run_with_stdin(powers, "39")
+run_with_stdin(powers, "289")
+run_with_stdin(powers, "2374")
+#+end_src
+
+#+RESULTS:
+: 27 jest większe od 23
+: 81 jest większe od 39
+: 729 jest większe od 289
+: 6561 jest większe od 2374
+
+f. poprawny numer miesiąca
+#+begin_src python :session io
+def month_number():
+    number = int(input())
+    c = 0
+    while number not in range(1, 13):
+        if c >= 3:
+            print("Koniec prób")
+            break;
+        number = int(input())
+        c += 1
+
+#+end_src
+
+* Zestaw 4
+
+** Ćwiczenie 1

@@ -1,0 +1,4 @@
+:PROPERTIES:
+:ID:       1bad8ad1-c4b3-45a3-9385-4c648ba7f404
+:END:
+#+title: cisco cybersec intro

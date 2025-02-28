@@ -1,0 +1,164 @@
+:PROPERTIES:
+:ID:       bee45d57-c273-4bd9-b978-524ce84bb1ce
+:END:
+#+title: Structs and data types in rust
+
+
+
+
+* :toc:
+
+
+* Defining and instantiating
+
+
+Struct are defined using a ~struct~ keyword:
+#+name: struct-definition
+#+begin_src rust
+struct User {
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64
+}
+#+end_src
+
+Structs are instantiated by specifying value for all the fields of the struct and assigning it to a variable. Order of fields does not matter.
+
+#+begin_src rust
+let user = User {
+    active: true,
+    username: String::from("nick"),
+    email: String::from("nick@mail.com"),
+    sign_in_count: 1
+};
+#+end_src
+
+Fields of the struct instance can be accessed using dot notation.
+
+#+begin_src rust
+let status = user.active;
+
+assert_eq!(status, true);
+#+end_src
+
+If the instance is mutable, the dot operator can be used to modify the values of fields.
+
+#+begin_src rust
+user.active = false;
+#+end_src
+
+* Struct update syntax
+
+Struct can be instantiated using information from another struct, all fields not explicitly assigned will be ~moved~ from used struct. This invalidates the first struct if any of the moved fields have data on heap.
+
+#+begin_src rust
+let user2 = {
+    email: String::from("another_nick@mail.com"),
+    ..user
+}
+#+end_src
+
+
+* Tuple structs
+
+Tuple structs can be used in order to distinguish on the type level same type tuples.
+#+begin_src rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+
+#+end_src
+
+
+* Unit structs with no fields
+
+Basically a tuple struct for ~()~ (unit) tuple.
+
+#+begin_src rust
+struct AlwaysEqual;
+
+fn main() {
+    let subject = AlwaysEqual;
+}
+#+end_src
+
+
+* Method syntax
+
+Methods are functions that:
+- are defined in context of a struct
+- take ~self~, a reference to the instance of a struct the method is being called on, as a first parameter
+
+
+#+begin_src rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+	self.width * self.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+	width: 30,
+	height: 50
+    };
+
+    println!("The area is {}", rect1.area());
+}
+	
+#+end_src
+
+#+RESULTS:
+: The area is 1500
+
+
+* Associated functions
+
+Not all functions defined in ~impl~ block are methods, only those that take ~self~ as a first parameter. Those are often use for constructors and utility functions.
+
+#+begin_src rust
+impl Rectangle {
+    fn square(size: u32) -> Self {
+	Self {
+	    width: size,
+	    height: size,
+	}	
+    }
+}
+#+end_src
+
+The ~Self~ keyword in struct ~impl~ body always refers to the type of the struct.
+
+Associated functions are called using ~::~ operator.
+
+
+
+
+* Enumerations
+
+Enumerations are sum types
+
+#+begin_src rust
+enum Message {
+    Quit,
+    Move { x: i32, y: i32},
+    Write(String),
+    ChangeColor(i32, i32, i32)
+}
+#+end_src
+
+All variants of the ~Message~ enum are members of the ~Message~ type.
+
+
+

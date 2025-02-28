@@ -1,0 +1,266 @@
+:PROPERTIES:
+:ID:       6967cd48-a5ad-4734-a360-85f4c5b7fffc
+:END:
+#+title: Svelte
+#+filetags: :svelte:cheatsheet:
+
+*  Table of contents :noexport:toc:
+- [[#variables][Variables]]
+- [[#dynamic-attributes][Dynamic attributes]]
+  - [[#shorthand-attributes][Shorthand attributes]]
+  - [[#raw-html-in-variables][Raw HTML in variables]]
+- [[#styles][Styles]]
+- [[#reusing-components][Reusing components]]
+- [[#interactive-elements][Interactive elements]]
+  - [[#explain-this][Explain this]]
+  - [[#reactive-declarations][Reactive declarations]]
+  - [[#reactive-statements][Reactive statements]]
+  - [[#updating-state][Updating state]]
+- [[#component-props][Component props]]
+  - [[#default-prop-values][Default prop values]]
+  - [[#spreading-props][Spreading props]]
+  - [[#props-variable][~$$props~ variable]]
+  - [[#conditional-rendering][Conditional rendering]]
+
+* Variables
+
+#+begin_src web
+<script>
+  let name = "Błażej";
+</script>
+
+<p> welcome to {name}'s site </p>
+#+end_src
+
+* Dynamic attributes
+HTML attributes can also be filled with svelte variables
+#+begin_src web
+<script>
+    let url = "https://google.com";
+</script>
+
+<img src={url}>
+#+end_src
+
+** Shorthand attributes
+If HTML attribute name is the same as svelte variable name, the attribute name can be omitted, using the var name as a shorthand.
+
+#+begin_src web
+
+<script>
+    let src = "google.com";
+</script>
+
+<img {src}>
+#+end_src
+** Raw HTML in variables
+To interpret interpolated string variable as ~HTML~ and not as a raw string, use ~@html~ tag.
+#+begin_src web
+<p>{@html variable}</p>
+#+end_src
+
+
+* Styles
+In Svelte components styles are declared using the ~<style>~ tag.
+
+#+begin_src web
+<style>
+    p {
+      color: red;
+    }
+</style>
+
+<p> THIS TEXT IS NOW RED </p>
+#+end_src
+
+
+Styles apply only to the elements in their own component.
+
+* Reusing components
+Components can be imported using ~import~ statement.
+
+#+begin_comment
+Svelte component names are always capitalized, to distinguish them from standard html tags.
+#+end_comment
+
+#+begin_src web
+<script>
+  import Styled from "./Styled.svelte"
+</script>
+
+<p>This is a styled component: <p><br>
+<Styled />
+#+end_src
+
+
+
+* Interactive elements
+** TODO Explain this
+
+#+begin_src web
+<script>
+  let count = 0;
+  function handleClick() {
+    count += 1;
+  }
+</script>
+
+<button on:click={handleClick}>
+  Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+#+end_src
+
+** TODO Reactive declarations
+Reactive declarations allow for encoding dependency on variables. When ~count~ changes, the value of ~double~ is recalculated.
+
+#+begin_src web
+<script>
+  let count = 0;
+  $: doubled = count * 2;
+  function handleClick() {
+    count += 1;
+  }
+</script>
+
+<button on:click={handleClick}>
+  Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+<p>{count} doubled is {doubled}</p>
+#+end_src
+
+This trivial example can be reimplemented as:
+#+begin_src web
+<script>
+  let count = 0;
+  function handleClick() {
+    count += 1;
+  }
+</script>
+
+<button on:click={handleClick}>
+  Clicked {count} {count === 1 ? 'time' : 'times'}
+</button>
+<p>{count} doubled is {count * 2}</p>
+#+end_src
+
+However this feature becomes much more useful in more complex scenarios.
+** Reactive statements
+On the same principle, statements can also be run depending on state changes:
+
+#+begin_src web
+<script>
+  $: console.log("the count changed");
+</script>
+#+end_src
+
+or statement blocks:
+
+#+begin_src web
+<script>
+  console.log("hello")
+  $: if (true) {
+    console.log("Its true");
+  }
+</script>
+
+#+end_src
+
+
+or even groups of statements:
+#+begin_src web
+<script>
+  $: {
+    console.log("count changed");
+    console.log("LOGGED AT {Date.now()}");
+  }
+</script>
+
+#+end_src
+** TODO Updating state
+Given this model of interactivity (updating on assignment) we have an issue: what about mutable stuff (objects, arrays)?
+
+#+begin_src web
+<script>
+  let numbers
+  function pushNumberToArray() {
+    numbers.push()
+  }
+</script>
+#+end_src
+
+* Component props
+To pass data from one component to another Svelte uses props. Each component has props (essentially its parameters), declared with ~export~ keyword.
+
+Props are passed as <prop-name> - <value> pairs:
+
+#+begin_src web
+<Component  propName1="value" propName2={interpolatedVariable}/>
+#+end_src
+
+If some props are not passed, default values are used, see [[Default prop values]].
+
+In this example variable ~answer~ is a prop and will be passed to the component on initialization.
+
+#+begin_src web
+<script>
+  export let answer;
+</script>
+#+end_src
+
+** Default prop values
+To handle case when there is no prop passed to the component, default prop valuess can be declared:
+
+In this example if no prop is supplied or the supplied value is undefined, variable ~answer~ will have value ~42~.
+#+begin_src web
+<script>
+  export let answer = 42;
+</script>
+#+end_src
+
+** Spreading props
+Suppose we have an object representing some data:
+#+begin_src json
+pkg = {
+  name = "svelte",
+  speed = "200",
+  version = "1.0",
+  website = "https://svelte.dev"
+}
+#+end_src
+
+and a Svelte component that wants the objects fields as seperate props:
+#+begin_src web
+<script>
+  export let name,
+             speed,
+             version,
+             website;
+</script>
+
+<p>{name}</p>
+<ul>
+  <li>{speed}</li>
+  <li>{version}</li>
+  <li>{website}</li>
+</ul>
+#+end_src
+
+Instead of supplying object's fields one by one, like this:
+#+begin_src web
+<script>
+  import PackageInfo from "./PackageInfo.svelte";
+</script>
+
+<PackageInfo name={pkg.name} speed={pkg.speed} version={pkg.version} website={pkg.website} />
+#+end_src
+
+We can 'unpack' the fields using spread syntax
+#+begin_src web
+<PackageInfo {...pkg} />
+#+end_src
+** TODO ~$$props~ variable
+** Conditional rendering
+To render html
+#+begin_src web
+
+#+end_src

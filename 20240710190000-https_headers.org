@@ -1,0 +1,43 @@
+:PROPERTIES:
+:ID:       d6d7ae20-538b-4f02-8a41-c0162d063388
+:END:
+#+title: Https headers
+#+filetags: :cheatsheet:
+
+* Table of contents :toc:noexport:
+- [[#introduction][Introduction]]
+  - [[#purpose][Purpose]]
+  - [[#intuitive-understanding][Intuitive understanding]]
+  - [[#possible-header-statuses][Possible header statuses]]
+  - [[#categories][Categories]]
+  - [[#][]]
+
+* Introduction
+** Purpose
+Http headers allow passing additional information between client and server.
+- format is ~header name~: ~value~
+- whitespace is ignored
+- custom headers are possible, they used to have 'x-' prefix, but that has been deprecated in 2012.
+** Intuitive understanding
+Meta information in HTTP requests and reponses.
+
+** Possible header statuses
+HTTP Field Name Registry manages registered headers. Each entry contains
+- field name :: a registered header name
+- status :: "permanent" | "provisional" | "deprecated" | "obsoleted"
+- specification document :: reference to the document that contains the filed specifications.
+- comments :: additional information, optional
+
+
+
+** Categories
+*** According to context
+- Request headers :: A request header provides information about the request to make tailoring the response possible.
+- Response headers :: A response header providees information  about the response.
+  - www-Authenticate :: defines [[id:5211d82c-fa25-4322-a756-2f73f4fa0696][Http authentication methods]] that can be used to get access to the resouce.
+  -  ::
+- Representation headers ::
+- Payload headers ::
+- End to end headers ::
+- Hop by hop ::
+**

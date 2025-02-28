@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       ab61a3bf-c7de-451b-8300-94ad9ee87447
+:END:
+#+title: Advent of Code 2024
+
+
+
+* 01.12.2024
+
+
+#+begin_src C
+#include <stdio.h>
+
+
+int main() {
+  fdsf
+
+}
+
+
+#+end_src
+
+#+name: sdfsdf
+
+#+begin_src rust :tangle "day1.rs"
+use std::io;
+use std::fs;
+use std::vec::{Vec};
+
+fn main() {
+    let input = fs::read_to_string("~/Downloads/aoc/input1").expect("Failed to read a file");
+
+    let left_numbers, right_numbers = Vec::new();
+}
+
+#+end_src
+
+
+* TODO aslfj;nf

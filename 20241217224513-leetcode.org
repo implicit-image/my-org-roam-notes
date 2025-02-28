@@ -1,0 +1,48 @@
+:PROPERTIES:
+:ID:       ea1ca7b7-cf30-43df-ba62-577fc6b2433e
+:END:
+#+title: Leetcode
+
+
+
+* Leetcode problems
+
+** Merge sorted array
+- url https://leetcode.com/problems/merge-sorted-array/
+
+#+begin_src cpp :results verbatim
+#include <iostream>
+#include <vector>
+
+
+using namespace std;
+
+void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+  int l = min(m, n);
+  for (int i = 0; i < l; i++) {
+    nums1.insert
+  }
+}
+
+void print_vector(vector<int>& v) {
+  bool first = true;
+  cout << "[";
+  for (auto i : v) {
+    cout << (first ? first = false, "" : ", ") << i;
+  }
+  cout << "]\n";
+}
+
+int main() {
+  vector<int> v1(3, 100);
+  vector<int> v2(2, 400);
+  merge(v1, 3, v2, 2);
+  print_vector(v1);
+}
+
+
+
+#+end_src
+
+#+RESULTS:
+: [100, 100, 100, 400, 400]

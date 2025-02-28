@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       88e58423-6ff5-4a8f-a057-bdccb7c2ad6f
+:END:
+#+title: Machine learning basics
+
+* Table of contents
+
+* Training data amanagement
+
+#+begin_src python :results output
+import matplotlib as plt
+import numpy as np
+
+def test(nums):
+    for i in nums:
+
+#+end_src
+
+#+RESULTS:
+: <module 'matplotlib' from '/usr/lib/python3.12/site-packages/matplotlib/__init__.py'>
+
+
+
+
+
+

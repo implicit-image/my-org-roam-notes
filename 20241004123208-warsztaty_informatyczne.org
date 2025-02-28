@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       e0e61cb6-aff5-4492-9a38-8b331b4a4a10
+:END:
+#+title: Warsztaty informatyczne
+
+* Ćwiczenia
+- mgr Jacek Szypulski
+- 1 albo 2 kolokwia
+- 2 nieusprawiedliwione nieobecności
+- oczekiwana praca własna
+  
+** Notatki
+- [[id:611f5714-8e90-4e88-915a-6229f8cd8636][[02.10.2024] - podstawy nawigacji w powłoce bash]]

@@ -1,0 +1,29 @@
+:PROPERTIES:
+:ID:       57af8bbc-3312-464a-ad09-4b9110c1feaf
+:END:
+#+title: C function pointers
+
+
+
+* Syntax
+The syntax for function pointers is src_C{<return type>* (**<pointer name>) (<argument type>**)}, for example:
+#+begin_src C
+
+char* someFunction(int arg) {
+  return "Hello";
+}
+
+char* (*f_pointer) (int);
+f_pointer = &someFunction;
+#+end_src
+
+declares a function pointer named ~f_pointer~ that is supposed to point to a function that returns a pointer to a ~char~ and takes an ~int~ as an argument.
+
+
+* Usage
+
+#+begin_src C
+(*f_pointer) (2);
+// is equal to
+someFunction(2);
+#+end_src

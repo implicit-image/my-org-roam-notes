@@ -2,7 +2,7 @@
 :ID:       2978669e-0fe6-463f-ba19-dfb410ff5cee
 :END:
 #+title: Logika - powtórka do kolosa
-#+name: Logika_powtorka_do_kolosa
+#+name: logika_powtorka_do_kolosa
 * Podstawy logiki 1
 ** Kluczowe tautologie KRZ
 | nazwa                          | formuła                         |
@@ -13,8 +13,8 @@
 | prawo transpozycji             | (p \rightarrow q) \leftrightarrow (\not q \rightarrow \not p)           |
 | prawo sylogizmu warunkowego    |                                 |
 |                                | ( p \rightarrow q) \land ( q \rightarrow r) \rightarrow ( p \rightarrow r) |
-|                                | (𝑝 \rightarrow 𝑞) \rightarrow [(𝑞 \rightarrow 𝑟) \rightarrow (𝑝 \rightarrow 𝑟)]    |
-|                                | (𝑞 \rightarrow 𝑟) \rightarrow [(𝑝 \rightarrow 𝑞) \rightarrow (𝑝 \rightarrow 𝑟)]    |
+|                                | (p \rightarrow q) \rightarrow [(q \rightarrow r) \rightarrow (p \rightarrow r)]   |
+|                                | (q \rightarrow r) \rightarrow [(p \rightarrow q) \rightarrow (p \rightarrow r)]   |
 | prawo eksportacji i importacji | [(p \land q) \rightarrow r] \leftrightarrow [p \rightarrow (q \rightarrow r)]  |
 |                                |                                 |
 
@@ -52,7 +52,7 @@
      q : 2 \lt 1
      r : 2 \lt 3
      \not p \rightarrow (p \rightarrow q \lor r)
-     
+
   2. Następnie ustalic wartości logiczne zdań prostych
      p = 0, q = 0, r = 1
 
@@ -164,7 +164,7 @@ Jeżeli A jest tautologią KRZ, a formuła A' powstaje z A przez podstawienie za
 
 
 - Definiowalność spójnika logicznego :: spójnik jednoargumentowy s jest definiowalny przez formułę A(p) gdy formuła s p jest równoważna logicznie formule A(p). Mówimy, że spójnik dwuargumentowy s jest definiowalny przez formułę A(p, q) gdy formuła p `s` q jest równowazna formule A(p, q).
-  
+
 
 * Podstawy logiki 3
 
@@ -215,9 +215,9 @@ Podformuły danej formuły zastępujemy formułami równoważnymi w następując
      - d \land (c1 \lor ... \lor ck) przez (d \land c1) \lor ... \lor (d \land ck)
      - (c1 \lor ... \lor ck) \land d przez (c1 \land d) \lor ... \lor (ck \land d)
 
-       
-     
-    
+
+
+
 ** Sprowadzanie formuł KRZ do apn i kpn metodą tablicową
 
 A = p \land q \leftrightarrow q \land \not r
@@ -235,7 +235,3 @@ A = p \land q \leftrightarrow q \land \not r
 
 
 ** Reguły tworzenia drzewa dowodowego
-
-
-
-

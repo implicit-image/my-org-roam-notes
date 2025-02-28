@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       0ede5635-e3d0-4040-a0cf-a5577da66438
+:END:
+#+title: [04.10.2024] - podstawy pythona
+

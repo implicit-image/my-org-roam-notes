@@ -1,0 +1,13 @@
+:PROPERTIES:
+:ID:       9877201b-47b1-452b-92a1-5b8f41caa702
+:END:
+#+title: Studia
+
+* Notatki
+** Semestr I, Zima 2024/2025
+- [[id:dc242385-4b0f-40eb-bc4c-8f448695c7bb][Bazy danych]] 
+- [[id:e0e61cb6-aff5-4492-9a38-8b331b4a4a10][Warsztaty informatyczne]] 
+- [[id:07f900a2-ea74-4a5a-a764-6b05ed8dda3e][Metody algebry liniowej w informatyce]] 
+- [[id:4ea383c7-e3c1-4722-b239-d2c2c19e68f0][Wstęp do logiki, teorii zbiorów i przestrzeni metrycznych]] 
+- [[id:9718c5bc-23bd-4a5c-8f8b-dd1664d51076][Repetytorium matematyczne]] 
+- [[id:fb218902-7a1f-4387-97f3-45330c22cd1d][Wstęp do programowania]] 

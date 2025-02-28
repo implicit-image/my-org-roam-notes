@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:       beb8d41c-9c60-4160-a5c2-c92bf8aa6380
+:END:
+#+title: Warsztaty Informatyczne - LaTeX
+#+latex_header: \usepackage{polski}
+#+latex_header: \usepackage{utf8}
+
+
+* Ćwiczenia 1
+
+** Podstawy formatowania tekstu
+
+*** Segmentacja dokumentu
+
+- podział dokumentu na
+
+
+
+
+- instrukcja ~\maketitle~ tworzy stronę tytułową na podstawie metadanych dokumentu
+- metadane można ustawić \title{}, \date{}, \author{}
+
+
+
+
+\begin{enumerate}
+\item hewwo
+\item kdkfbnk
+\end{enumerate}
+
+\begin{enumerate}
+\item\label{item:1} first item
+\item\label{item:2} second item
+\end{enumerate}
+
+\begin{enumerate}
+\item\label{item:3} next
+\item\label{item:2} list
+\end{enumerate}

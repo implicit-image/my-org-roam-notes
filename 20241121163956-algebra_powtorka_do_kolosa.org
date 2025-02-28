@@ -1,0 +1,79 @@
+:PROPERTIES:
+:ID:       289f11dc-ce6c-4927-9b64-a2f520508875
+:END:
+#+title: Algebra - powtórka do kolosa
+
+
+* :toc:
+- [[#grupy][Grupy]]
+  - [[#podgrupy][Podgrupy]]
+  - [[#przykłady][Przykłady]]
+- [[#ciała][Ciała]]
+  - [[#ciało-liczb-zespolonych][Ciało liczb zespolonych]]
+- [[#liczby-zespolone][Liczby zespolone]]
+- [[#przestrzenie-wektorowe][Przestrzenie wektorowe]]
+- [[#wektory][Wektory]]
+- [[#macierze][Macierze]]
+- [[#równania-macierzowe][Równania macierzowe]]
+
+* Grupy
+
+- grupa :: grupą nazywamy zbiór G z działaniem *, gdy spełnione są warunki:
+  + działanie * jest łączne, tzn a * (b * c) == (a * b) * c, a, b, c, \in G
+  + istnieje /element neutralny/ e działania *, czyli taki, że a * e = e * a = a ddla a \in G
+  + dla dowolnego a \in G, istnieje /element odwrotny/ a' \in G, czyli taki, że a * a' = a' * a = e, gdzie e jest /elementem neutralnym/.
+
+Mówimy, że grupa jest /abelowa/ (przemienna), gdy a * b == b * a dla dowolnych a, b \in G
+
+** Podgrupy
+- podgrupa :: podgrupą nazywamy dowolny podzbiór G, który jest grupą ze względu na te samo działanie co G.
+
+Dowolny podzbiór H grupy G jest podgrupą gdy:
+1. H \ne \empty
+2. dla a, b \in H również a^{-1}, a * b \in H (odwrotność i działanie względem którego grupa jest zdefiniowana nie zabierają nas poza grupę)
+
+
+** Przykłady
+- liczby całkowite Z z działaniem dodawania i elementem neutralnym 0 są grupą
+
+* Ciała
+- ciało :: ciałem nazywamy zbiór F z działaniem dodawania i mnożenia oraz wyróżnionymo elmenetami 0, 1 \in F, gdy spełnione są warunki:
+  + (F, +) z elementem neutralnym 0 jest grupą abelową (przemienną)
+  + (F \ {0}, *) z elementem neutralnym 1 jest grupą abelową (przemienną)
+  + mnożenie jest rozdzielne względem dodawania, a * (b + c) = ab + ac
+
+
+- prawo łączności, rozdzielności i przemienności są spełnione we wszystkich zbiorach liczbowych N \sube Z \sube Q \sube R
+
+- ciałami  są liczby wymierne i liczby rzeczywiste
+
+** Ciało liczb zespolonych
+
+- ciało liczb zespolonych :: ciałemn liczb zespolonych C nazywamy zbiór uporządkowany par liczb rzeczywistych z następującymi działaniami dodawania i mnożenia:
+  + (a, b) + (c, d) := (a + c, b + d)
+  + (a, b) * (c, d) := (ac - bd, ad + bc)
+
+- postać algebraiczna liczby zespolonej :: z = x + yi, gdzie:
+  + i^{2} = -1
+  + x - część rzeczywista
+  + y - częśc urojona
+
+- sprzężenie liczby zespolonej :: sprzężenie liczby zespolonej z = x + yi to x - yi
+
+
+* Liczby zespolone
+
+* Przestrzenie wektorowe
+
+* Wektory
+
+* Macierze
+
+* Równania macierzowe
+
+
+\begin{equation}
+
+\sqrt{2}{6}
+
+\end{equation}

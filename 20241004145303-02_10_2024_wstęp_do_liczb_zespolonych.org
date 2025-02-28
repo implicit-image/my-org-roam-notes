@@ -1,0 +1,23 @@
+:PROPERTIES:
+:ID:       b58a258d-b39e-4cfe-85d6-68f15eec2d94
+:END:
+#+title: [02.10.2024] - wstęp do liczb zespolonych
+
+
+
+
+
+
+
+* Grupy
+
+- grupa ::
+  zbiór G z działaniem \circ, gdy spełnione są warunki:
+
+  1. działanie \circ jest /łączne/ tzn. \forall a, b, c ∈ G : a \circ (b \circ c) \equiv (a \circ b) \circ c
+  2. istnieje element neutralny e działania \circ, czyli taki, że \forall a ∈ G : a \circ e \equiv e \circ a \equiv a 
+  3. \exists_{a \in G} a^{-1} \in G : a \circ a^{-1} \equiv 1
+
+\begin{equation}
+\left[ \frac{t^{2}}{2} \right]
+\end{equation}

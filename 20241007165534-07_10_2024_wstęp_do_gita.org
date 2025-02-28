@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       0e875be7-0be8-4d24-a6fd-50fb88b37ba1
+:END:
+#+title: [07.10.2024] - wstęp do gita
+

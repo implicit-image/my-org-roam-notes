@@ -1,0 +1,129 @@
+:PROPERTIES:
+:ID:       611f5714-8e90-4e88-915a-6229f8cd8636
+:END:
+#+title: [02.10.2024] - podstawy nawigacji w powłoce bash
+
+
+
+* :toc:
+
+* Nawigacja
+
+- ls :: wypisz listę plików i katalogów
+
+#+begin_src bash :results verbatim
+ls -l ~/.local
+#+end_src
+
+#+RESULTS:
+: total 12
+: drwxr-xr-x  2 b b 4096 Sep  7 02:09 bin
+: drwxr-xr-x 39 b b 4096 Oct  4 13:25 share
+: drwx------  8 b b 4096 Sep 29 19:44 state
+
+
+- cd :: zmmienia bieżacy katalog
+
+#+begin_src bash :results verbatim
+pwd
+cd ..
+pwd
+#+end_src
+
+#+RESULTS:
+: /home/b/org/roam
+: /home/b/org
+
+
+- mkdir, rmdir ::  tworzy lub usuwa katalog.
+
+#+begin_src bash :results verbatim
+ls -la ~/test 
+#+end_src
+
+#+RESULTS:
+: total 8
+: drwxr-xr-x  2 b b 4096 Oct  4 16:14 .
+: drwx------ 77 b b 4096 Oct  4 16:09 ..
+
+#+begin_src bash :results verbatim
+mkdir ~/test/new
+ls -la ~/test
+#+end_src
+
+#+RESULTS:
+: total 12
+: drwxr-xr-x  3 b b 4096 Oct  4 16:17 .
+: drwx------ 77 b b 4096 Oct  4 16:09 ..
+: drwxr-xr-x  2 b b 4096 Oct  4 16:17 new
+
+#+begin_src bash :results verbatim
+rmdir ~/test/new
+ls -la ~/test
+#+end_src
+
+#+RESULTS:
+: total 8
+: drwxr-xr-x  2 b b 4096 Oct  4 16:17 .
+: drwx------ 77 b b 4096 Oct  4 16:09 ..
+
+katalog można też usunąć uzywając polecenia ~rm -rd~:
+  - ~rm~ - remove
+    + r - recursive
+    + d - directory
+
+* Tworzenie i edycja plików tekstowych
+
+- touch
+- cat
+- nano
+
+** Cwiczenia
+
+
+
+* Kopiowanie, przenoszenie i usuwanie plików
+- cp
+- mv
+- rm
+
+** Ćwiczenia
+
+
+* Wyświetlanie zawartości plików
+
+- less
+- more
+- head
+- tail
+
+
+** Ćwiczenia
+
+* Wyszukiwanie plików i tekstu
+
+- find
+- grep
+- ripgrep
+
+** Ćwiczenia
+
+
+
+* Zarządzanie uprawnieniami
+
+- chmod
+- chown
+- chgrp
+
+
+
+
+
+* Informacje o systemie
+
+
+- uname
+- whoami
+- date
+- uptime

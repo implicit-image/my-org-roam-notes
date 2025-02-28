@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:       07f900a2-ea74-4a5a-a764-6b05ed8dda3e
+:END:
+#+title: Metody algebry liniowej w informatyce
+
+
+
+* Wykłady
+- dr. Jarosław Kosiorek
+- jeden egzamin ustny, jeden pisemny
+- 2 nieusprawiedliwione nieobecności
+  
+** Notatki
+
+* Ćwiczenia
+- dr. Jarosław Kosiorek
+- 2 kolokwia, 50% z sumy obu do zdania
+- wejściówki +1pkt/-1 pkt, do wyzerowania na konsultacjach
+- aktywność 0.5 pkt
+- konsultacje czw 10:30-11:15
+- 2 nieusprawiedliwione nieobecności
+
+** Notatki
+- [[id:b58a258d-b39e-4cfe-85d6-68f15eec2d94][[02.10.2024] - wstęp do liczb zespolonych]]
+- [[id:26d0b755-761d-46a2-9b77-abba17f85801][[09.10.2024] - przestrzenie wektorowe]] 

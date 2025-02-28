@@ -1,6 +1,0 @@
-:PROPERTIES:
-:ID:       48ed4228-625b-41bf-919a-16739bcdfc05
-:END:
-#+title: Statistics
-
-* Categories

@@ -1,0 +1,48 @@
+:PROPERTIES:
+:ID:       f8f130e9-3ec5-4c0c-b510-e1a87293bb83
+:END:
+#+title: C Programming Language - notes
+
+
+
+
+* Chapter 1 - intro
+
+** COMMENT 1.1 - getting started
+
+#+begin_src C :results output :tangle main.c
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+  int a;
+  printf("test");
+  return 0;
+}
+#+end_src
+
+#+RESULTS:
+: test
+
+** 1.2 - variables and arithmetics
+
+
+
+#+begin_src C :results output :tangle main.c
+
+int test_func(int* a)
+{
+  a = &a + 4;
+  printf("%n", &a);
+}
+
+
+#+end_src
+
+
+
+
+
+
+* 

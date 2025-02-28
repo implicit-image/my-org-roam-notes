@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:       fb218902-7a1f-4387-97f3-45330c22cd1d
+:END:
+#+title: Wstęp do programowania
+
+
+
+* Wykłady
+- prowadzący
+- zaliczenie
+
+* Ćwiczenia
+- dr. Anna Muranova
+- 2 kolokwia, 50% całości do zdania, po jednej poprawie/kolokwium
+- 3 nieusprawiedliwione nieobecności
+- konsultacje czwartek 11:30 - 14:00
+
+** Notatki
+- [[id:0ede5635-e3d0-4040-a0cf-a5577da66438][[04.10.2024] - podstawy pythona]] 
+
+** Linki
+- [[http://wmii.uwm.edu.pl/~muranova/][strona dr Muranovej]]
+- [[http://wmii.uwm.edu.pl/~muranova/WdPSt2024-25/][Materiały do ćwiczeń]]
+

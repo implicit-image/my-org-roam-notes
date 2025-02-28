@@ -1,0 +1,16 @@
+:PROPERTIES:
+:ID:       9d8dd820-a83f-4396-9c1e-692d66d532ed
+:END:
+#+title: Elisp macros
+#+filetags: :emacs:elisp:
+
+
+
+
+* Macro declarations
+
+#+begin_src emacs-lisp
+(defmacro my-macro (arg1 arg2)
+  "comment"
+  )
+#+end_src

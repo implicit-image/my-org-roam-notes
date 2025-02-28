@@ -1,0 +1,12 @@
+:PROPERTIES:
+:ID:       5dd386f7-ad63-4ed6-b16d-96daf3968d24
+:NOTER_DOCUMENT: ~/library/Sebastian Raschka/Build a Large Language Model (From Scratch) (1045)/Build a Large Language Model (From Scratch - Sebastian Raschka.pdf
+:NOTER_PAGE: 24
+:END:
+#+title: LLMs from scratch
+* What is an llm
+:PROPERTIES:
+:NOTER_PAGE: 24
+:END:
+
+- llm :: a network designed to understand (?), generate and respond to human like text.

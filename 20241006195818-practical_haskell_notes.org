@@ -1,0 +1,17 @@
+:PROPERTIES:
+:ID:       09e77f68-af69-4ac0-95d1-4dbeb8b2ef2e
+:END:
+#+title: Practical Haskell - notes
+
+
+
+* :toc:
+
+
+* Chapter 1 - intro
+
+
+
+
+* Chapter 2  - Declaring the data model
+

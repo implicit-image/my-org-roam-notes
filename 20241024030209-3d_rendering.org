@@ -1,0 +1,21 @@
+:PROPERTIES:
+:ID:       ea04476f-5308-4115-910e-31c2ae38fea1
+:END:
+#+title: 3D rendering
+
+
+
+* Theory
+
+
+#+begin_src js :file rendering.js
+function test() {
+    console.log("fsfs")
+}
+#+end_src
+
+
+\begin{equation}
+\label{eq:1}
+\frac{3}{4} = \infty
+\end{equation}

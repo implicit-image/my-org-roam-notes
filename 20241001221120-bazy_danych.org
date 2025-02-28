@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       dc242385-4b0f-40eb-bc4c-8f448695c7bb
+:END:
+#+title: Bazy danych
+
+
+* Wykłady
+- dr. Paweł Drozda
+
+** Notatki
+- [[id:1666ff68-07e6-428f-89f5-fa6312c5caa1][[02.10.2024] - wykład organizacyjny]] 
+
+* Ćwiczenia
+-  
+** Notatki
+- [[id:0e875be7-0be8-4d24-a6fd-50fb88b37ba1][[07.10.2024] - wstęp do gita]] 
+
+
+
