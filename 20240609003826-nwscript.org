@@ -4,3 +4,14 @@
 #+title: NWScript
 
 * :toc:
+
+** Second
+gdfgdfgdf
+#+caption: source code
+#+begin_src c
+int main(){
+  printf("Hello");
+  return 0;
+}
+#+end_src
+

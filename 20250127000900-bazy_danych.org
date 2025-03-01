@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       82c37212-04b8-4887-abc2-1ef3d11cfdfc
+:END:
+#+title: Bazy Danych
+
+
+* :toc:
+- [[#][]]
+
+*

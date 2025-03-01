@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       c58ebca4-8757-4616-84de-2ee60a264310
+:NOTER_DOCUMENT: ~/library/Gilbert Strang/Linear Algebra and Learning from Data (14)/Linear Algebra and Learning from Data - Gilbert Strang.pdf
+:NOTER_PAGE: 16
+:END:
+#+title: Gilbert Strang - Linear Algebra and Learning from Data
