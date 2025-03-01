@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       ddc89807-68c4-45d0-9130-6f1745760ec1
+:END:
+#+title: Algebra liniowa - powtórka do kolosa
+
+* Definicje, twierdzenia
+
+** Liczby zespolone
+
+*** Podstawowe definicje i własności
+- Liczba zespolona :: uporządkowana para liczb rzeczywistych (x, y).
+  C == {z = (x, yi) : z, y \in \real}. Liczby zespolone przedstawiamy na płaszczyźnie w postaci punktu (x, iy) lub w postaci wektora o początku (0, 0) i końcu (x, iy). *W tej interpretacji zbiór wszystkich liczb zespolonych C nazywamy płaszczyzną zespoloną*; np. liczba (1, i) w przestrzeni zespolonej to:
+\begin{tikzpicture}
+\draw (2, 0) -- (-2, 0)
+      (0, 2) -- (0, -2);
+\draw[red] (0, 0) -- (1, 1);
+\draw[green, dotted] (1, 0) -- (1, 1);
+\draw[green, dotted] (0, 1) -- (1, 1);
+\end{tikzpicture}

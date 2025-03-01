@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       8cb0e0c6-d61d-4d8d-befb-29da29ced28b
+:NOTER_DOCUMENT: ~/library/Unknown/Practical WebAssembly  Explore the fundamentals of -- Sendil Kumar Nellaiyapen -- 1, 2022 -- Pac (35)/Practical WebAssembly  Explore the fundame - Unknown.pdf
+:NOTER_PAGE: 22
+:END:
+#+title: Practical WebAssembly
+* Compiled language architecture
+:PROPERTIES:
+:NOTER_PAGE: 22
+:END:

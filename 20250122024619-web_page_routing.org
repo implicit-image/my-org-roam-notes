@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       29721f26-c2d7-4ce9-95ce-804157f1223b
+:END:
+#+title: web page routing
+
+
+* :toc:
+- [[#javascript][javascript]]
+- [[#react][react]]
+
+* javascript
+
+#+begin_src js-ts
+
+#+end_src
+
+
+* react
+
+#+begin_src js-ts
+const f = () => {
+    <div className="sfs">
+
+    </div>
+}
+#+end_src

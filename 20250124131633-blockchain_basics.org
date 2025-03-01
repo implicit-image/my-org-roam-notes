@@ -1,0 +1,4 @@
+:PROPERTIES:
+:ID:       1f44c09b-fd66-4198-ae1d-162eb73b1ba9
+:END:
+#+title: blockchain basics

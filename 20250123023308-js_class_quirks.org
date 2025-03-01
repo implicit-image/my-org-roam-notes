@@ -1,0 +1,45 @@
+:PROPERTIES:
+:ID:       8823be7b-a9e5-46ba-b110-cf3bbf40797e
+:END:
+#+title: js class quirks
+
+
+* :toc:
+- [[#basics][Basics]]
+  - [[#defining-classes][Defining classes]]
+  - [[#class-members][Class members]]
+  - [[#class-constructor][Class Constructor]]
+
+* Basics
+
+Classes are just templates for creating *objects*.
+
+** Defining classes
+Classes can be defined using ~class~ keyword:
+#+begin_src js-ts
+class TestClass {
+    constructor(args) {
+
+    }
+}
+#+end_src
+
+or anonymously, use as an expresion:
+#+begin_src js-ts
+const classText = class {
+    constructor() {
+
+    }
+}
+#+end_src
+
+** Class members
+class members are methods and constructors defined in class body. They are divided as four kinds:
+- getter
+- setter
+- method
+- field
+Additionallu each member can be ~static~ / ~instance~ and ~public~ / ~private~.
+
+
+** Class Constructor
